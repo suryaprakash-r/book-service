@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white rounded-lg shadow-lg max-w-3xl w-full p-8">
+        <h1 class="text-4xl font-extrabold mb-6 text-gray-900">Books</h1>
+        <ul class="divide-y divide-gray-200 mb-6">
+            {% for book in books %}
+            <li class="py-3 flex justify-between items-center">
+                <span class="font-semibold text-lg text-gray-800">{{ book.title }}</span>
+                <span class="text-gray-600 italic">{{ book.author }} ({{ book.year }})</span>
+            </li>
+            {% else %}
+            <li class="py-3 text-gray-500 italic">No books found.</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('book.add_book_form') }}" 
+           class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+           Add Book
+        </a>
+    </div>
+</body>
+</html>
