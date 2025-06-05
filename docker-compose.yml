@@ -14,7 +14,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   book-service:
-    build: .
+    image: ash4devops/project:book-service
     restart: always
     ports:
       - "5000:5000"
